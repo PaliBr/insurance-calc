@@ -1,6 +1,6 @@
 import FormRadio from "../FormRadio/FormRadio";
 
-import './FormRadioHolder.scss';
+import "./FormRadioHolder.scss";
 
 const FormRadioHolder = ({ basic, extended, extra }) => {
   return (

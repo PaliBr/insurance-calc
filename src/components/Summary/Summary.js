@@ -20,12 +20,14 @@ const Summary = () => {
     let today = new Date();
     let start = new Date(startDate);
     let end = new Date(endDate);
-    
+
     let todayTimeDiff = today.getTime() - start.getTime();
     let todayDaysDiff = todayTimeDiff / (1000 * 3600 * 24);
-  
-    if(todayDaysDiff > 1){
+
+    if (todayDaysDiff > 1) {
       setErrorDate(true);
+    } else {
+      setErrorDate(false);
     }
 
     if (insuranceCategory === "short-term") {
@@ -70,41 +72,48 @@ const Summary = () => {
     }
   }, [persons, startDate, endDate, insuranceCategory, numOfDay, packagePrice, insuranceAddition]);
 
-  const Error = ({ children }) => <div className="error">{children}</div>;
+  const reformatDateString = (string) => {
+    let dateString = string.split(/\D/);
+    return dateString.reverse().join('.');
+  }
+
+  const Error = ({ children }) => <div className="summary--error">{children}</div>;
+
+  const Addition = () => insuranceAddition.map((item) => <div key={item}>{item === "storno" ? "Storno cesty" : "Športové aktivity"}</div>);
 
   return (
     <div className="summary">
       <FormHeader text="Súhrn" />
-      <div>
+      <div className="summary--row">
         <div>Variant</div>
         <div>{insuranceCategory === "short-term" ? "Krátkodobé poistenie" : "Celoročné poistenie"}</div>
       </div>
-      <div>
+      <div className="summary--row">
         <div>Balík</div>
         <div>{insurancePackage === "basic" ? "Základný balík" : insurancePackage === "extended" ? "Rozšírený balík" : "Extra balík"}</div>
       </div>
-      <div>
+      <div className="summary--row">
         <div>Pripoistenie</div>
-        <div>{insuranceAddition.length > 0 ? insuranceAddition.map((item) => item) : "Žiadne pripoistenie"}</div>
+        <div>{insuranceAddition.length > 0 ? <Addition /> : "Žiadne pripoistenie"}</div>
       </div>
-      <div>
+      <div className="summary--row">
         <div>Začiatok poistenia</div>
-        <div>{errorDate ? <Error>Začiatok musí byt minimálne dnešný dátum</Error> : startDate}</div>
+        <div>{errorDate ? <Error>Začiatok musí byt minimálne dnešný dátum</Error> : reformatDateString(startDate)}</div>
       </div>
-      <div>
+      <div className="summary--row">
         <div>Koniec poistenia</div>
-        <div>{endDate}</div>
+        <div>{reformatDateString(endDate)}</div>
       </div>
-      <div>
+      <div className="summary--row">
         <div>Počet dní</div>
         <div>{numOfDay > 0 ? numOfDay : 0}</div>
       </div>
-      <div>
+      <div className="summary--row">
         <div>Počet osôb</div>
         <div>{persons}</div>
       </div>
-      <div>
-        <div>Výška poistného</div>
+      <div className="summary--total-price">
+        <div>Cena poistenia</div>
         <div>{numOfDay > 0 ? total.toLocaleString("sk", { style: "currency", currency: "EUR" }) : <Error>Poistenie musí trvať minimálne 1 deň</Error>}</div>
       </div>
     </div>
