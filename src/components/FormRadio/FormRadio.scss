@@ -1,0 +1,19 @@
+.form-radio {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    label {
+        display: flex;
+        width: 100%;
+        
+        .form-radio--text {
+            flex: 1;
+        }
+
+        .form-radio--price {
+            flex: 1;
+            font-weight: 500;
+        }
+    }
+}

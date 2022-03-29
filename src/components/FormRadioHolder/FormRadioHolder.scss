@@ -1,0 +1,10 @@
+.form-radio-holder {
+    display: flex;
+    flex-direction: column;
+
+    .form-radio-holder--label {
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+}

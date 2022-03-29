@@ -1,0 +1,19 @@
+.form-persons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+
+  .form-persons--label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .form-persons--select {
+      select {
+        margin-top: 0.5rem;
+        padding: 0.25rem;
+        font-size: 1.1rem;
+      }
+  }
+}
