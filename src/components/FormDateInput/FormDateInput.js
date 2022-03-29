@@ -8,6 +8,12 @@ const FormInput = ({ id, labelText, value, required }) => {
 
   const handleChange = (e) => {
     if (id === "start-date") {
+      if (insuranceCategory === "long-term") {
+        let currentStartDate = new Date(e.target.value);
+        let newEndDate = currentStartDate.setFullYear(currentStartDate.getFullYear() + 1);
+        newEndDate = new Date(newEndDate).toISOString().slice(0, 10);
+        setEndDate(newEndDate);
+      }
       setStartDate(e.target.value);
     } else {
       if (insuranceCategory === "long-term") {
