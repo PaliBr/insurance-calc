@@ -15,9 +15,9 @@ const FormPersons = () => {
       <div className="form-persons--label">Počet osôb</div>
       <div className="form-persons--select">
         <select onChange={handleChange} required>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
+          <option value="1">1 osoba</option>
+          <option value="2">2 osoby</option>
+          <option value="3">3 osoby</option>
         </select>
       </div>
     </div>
