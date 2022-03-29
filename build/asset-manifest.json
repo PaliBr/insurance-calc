@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/insurance-calc/static/css/main.6986ea59.css",
+    "main.js": "/insurance-calc/static/js/main.5b3ef880.js",
+    "static/js/787.f8ca37c3.chunk.js": "/insurance-calc/static/js/787.f8ca37c3.chunk.js",
+    "index.html": "/insurance-calc/index.html",
+    "main.6986ea59.css.map": "/insurance-calc/static/css/main.6986ea59.css.map",
+    "main.5b3ef880.js.map": "/insurance-calc/static/js/main.5b3ef880.js.map",
+    "787.f8ca37c3.chunk.js.map": "/insurance-calc/static/js/787.f8ca37c3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6986ea59.css",
+    "static/js/main.5b3ef880.js"
+  ]
+}
